@@ -1,0 +1,33 @@
+---
+title: "Homework 1"
+---
+
+```{r global_options, include=FALSE}
+library(knitr)
+library(ggplot2)
+opts_chunk$set(fig.align="center", fig.height=4, fig.width=5.5)
+```
+
+**This homework is due on the deadline posted on edX. Please submit a .pdf file of your output and upload a .zip file containing your .Rmd file. Do NOT include your name or EID in your filenames.**
+
+In this homework you will be working with the `chickwts` dataset built into R. This data set contains weight measurements of chicks fed on different food sources to assess their effectiveness on growth rate.
+
+```{r}
+head(chickwts)
+```
+
+**Problem 1:** Use ggplot to make a histogram of the `weight` column. Manually choose appropriate values for `binwidth` and `center`. Explain your choice of values in 2-3 sentences.
+
+```{r}
+ggplot(chickwts, aes(x=weight)) + geom_histogram(binwidth = 20, center=10)
+```
+
+*By setting binwidth to 20, we are chunking the weights into 5 ranges per 100 units. By setting center to 10, we are centering each bar on (110,130,150...) Therefore, it is easy to tell how many chickens are in the range 100-119, 120-139, 140-159, etc.*
+
+
+**Problem 2:** Modify the plot from Problem 1 to show one panel per feed. Hint: Use `facet_wrap()`.
+
+```{r}
+ggplot(chickwts, aes(x=weight)) + geom_histogram(binwidth = 20, center=10) + facet_wrap(~ feed)
+```
+
