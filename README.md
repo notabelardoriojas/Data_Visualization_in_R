@@ -19,3 +19,4 @@
   
   Linear trendlines for animal vore types (carnivore, herbivore, etc), weight vs amount of sleep
   
+Thanks for reading!
